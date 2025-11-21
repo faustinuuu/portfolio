@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faustino | Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="scanline"></div>
+
+    <!-- Landing Page Overlay -->
+    <div id="landing-page">
+        <div class="landing-content">
+            <h1 id="landing-text"></h1>
+            <p id="click-to-enter" class="hidden">[ Click to Enter ]</p>
+        </div>
+    </div>
+
+    <!-- Music Player Widget -->
+    <div id="music-player" class="music-player hidden">
+        <div class="player-header">
+            <span>♫ Music Player</span>
+            <div class="controls">
+                <button id="play-pause-btn">▶</button>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+        </div>
+        <div class="track-info">
+            <span id="track-name">No Track Playing</span>
+        </div>
+        <audio id="bg-music" loop>
+            <source src="assets/music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <main class="hidden-content">
+        <section id="hero">
+            <div class="container">
+                <p class="terminal-text">> Hello, World! I am</p>
+                <h1 class="glitch" data-text="Faustino">Faustino</h1>
+                <p class="subtitle">> <span id="typing-text"></span><span class="cursor-blink">_</span></p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn primary">[ View Projects ]</a>
+                    <a href="#contact" class="btn secondary">[ Contact Me ]</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">> whoami</h2>
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="title">user_profile.json</span>
+                    </div>
+                    <div class="terminal-body">
+                        <pre><code>{
+  "name": "Faustino",
+  "role": "Junior Software Developer",
+  "location": "Aveiro",
+  "skills": [
+    "HTML", "CSS", "JavaScript",
+    "Node.js", "Python"
+  ],
+  "passions": "Coding, reverse engineering, gaming and skating."
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">> ls ./projects</h2>
+                <div id="projects-grid" class="grid">
+                    <!-- Projects will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">> ./contact.sh</h2>
+                <form id="contact-form" class="terminal-form">
+                    <div class="form-group">
+                        <label for="name">> Name:</label>
+                        <input type="text" id="name" name="name" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">> Email:</label>
+                        <input type="email" id="email" name="email" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">> Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">[ Send Message ]</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="cmd-widget" class="cmd-widget closed">
+        <div class="cmd-header" onclick="toggleCmd()">
+            <span>>_ Terminal</span>
+            <span class="toggle-icon">▲</span>
+        </div>
+        <div class="cmd-body">
+            <div id="cmd-output">
+                <p>Welcome to Faustino's Terminal v1.0.0</p>
+                <p>Type 'help' for a list of commands.</p>
+            </div>
+            <div class="cmd-input-line">
+                <span class="prompt">user@portfolio:~$</span>
+                <input type="text" id="cmd-input" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
