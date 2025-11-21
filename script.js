@@ -98,7 +98,7 @@ const phrases = [
     "Junior Software Developer",
     "Web Enthusiast",
     "Problem Solver",
-    "Coffee Drinker"
+    "Caffein Addict"
 ];
 let phraseIndex = 0;
 let charIndex = 0;
