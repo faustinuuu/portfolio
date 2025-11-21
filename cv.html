@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faustino | CV</title>
+    <link rel="icon" type="image/x-icon" href="planet.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CV Specific Styles */
+        /* Override global section styles to prevent huge gaps */
+        .cv-section {
+            margin-bottom: 20px;
+            min-height: auto !important;
+            padding: 0 !important;
+            display: block !important;
+        }
+
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px dashed var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .cv-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .cv-role {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .cv-contact-info {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .cv-contact-info div {
+            margin-bottom: 2px;
+        }
+
+        .cv-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 2px solid #333;
+            transition: border-color 0.3s;
+        }
+
+        .cv-item:hover {
+            border-left-color: var(--primary-color);
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+
+        .cv-item-title {
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .cv-item-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .cv-item-subtitle {
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .cv-list {
+            list-style-type: none;
+        }
+
+        .cv-list li {
+            margin-bottom: 2px;
+            position: relative;
+            padding-left: 20px;
+            color: #ccc;
+        }
+
+        .cv-list li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 6px 10px;
+            text-align: center;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .cv-header {
+                flex-direction: column;
+            }
+
+            .cv-contact-info {
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .back-btn {
+                position: static;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="scanline"></div>
+
+    <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
+        <a href="index.html" class="btn secondary back-btn">
+            < Go back</a>
+
+                <div class="terminal-card" style="max-width: 900px; margin-top: 10px;">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="title">cv_faustino.txt</span>
+                    </div>
+                    <div class="terminal-body" style="padding: 15px;">
+
+                        <header class="cv-header" style="margin-bottom: 15px; padding-bottom: 10px;">
+                            <div>
+                                <h1 class="cv-title" style="font-size: 2rem; margin-bottom: 5px;">Faustino</h1>
+                                <div class="cv-role">> Junior Web Developer</div>
+                            </div>
+                            <div class="cv-contact-info">
+                                <div>Aveiro, Portugal</div>
+                                <div>joaofaustinosantos3@gmail.com</div>
+                                <div>github.com/faustinuuu</div>
+                            </div>
+                        </header>
+
+                        <section class="cv-section" style="margin-bottom: 20px;">
+                            <h2 class="section-title" style="font-size: 1.3rem; margin-bottom: 10px;">> Experience</h2>
+
+                            <div class="cv-item" style="margin-bottom: 10px;">
+                                <div class="cv-item-header" style="margin-bottom: 5px;">
+                                    <span class="cv-item-title">Supermarket Section Manager</span>
+                                    <span class="cv-item-date">[ 2023 - Current ]</span>
+                                </div>
+                                <div class="cv-item-subtitle" style="margin-bottom: 5px;">MERCADONA</div>
+                                <ul class="cv-list">
+                                    <li>Managed and organized the fruit section to ensure consistent presentation and
+                                        product quality.</li>
+                                    <li>Monitored stock levels and placed inventory orders in accordance with demand.
+                                    </li>
+                                    <li>Developed strategies to reduce waste and optimize product turnover.</li>
+                                    <li>Coordinated administrative tasks related to product management and scheduling.
+                                    </li>
+                                    <li>Maintained performance under pressure in a fast-paced environment.</li>
+                                    <li>Applied problem-solving skills to resolve day-to-day operational challenges.
+                                    </li>
+                                    <li>Strengthened interpersonal and customer service skills through ongoing public
+                                        interaction.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-item" style="margin-bottom: 10px;">
+                                <div class="cv-item-header" style="margin-bottom: 5px;">
+                                    <span class="cv-item-title">Backoffice Agent</span>
+                                    <span class="cv-item-date">[ 2021 - 2023 ]</span>
+                                </div>
+                                <div class="cv-item-subtitle" style="margin-bottom: 5px;">Worten</div>
+                                <ul class="cv-list">
+                                    <li>Managed delivery schedules for large appliances.</li>
+                                    <li>Refund management for duplicated and returned products.</li>
+                                    <li>Account management for customers. [Lost passwords, emails, etc.]</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-item" style="margin-bottom: 10px;">
+                                <div class="cv-item-header" style="margin-bottom: 5px;">
+                                    <span class="cv-item-title">Helpdesk</span>
+                                    <span class="cv-item-date">[ APRIL 2021 - JUNE 2021 ]</span>
+                                </div>
+                                <div class="cv-item-subtitle" style="margin-bottom: 5px;"> FERNANDO FERRO & IRMÃO, S.A.
+                                    (Curricular Internship)
+                                </div>
+                                <ul class="cv-list">
+                                    <li>Setting up computers for new employees.</li>
+                                    <li>Upgrade and repair computers.</li>
+                                    <li>Solve any software issues that my team had, through remote desktop apps.</li>
+                                    <li>Create and configure VLANs in the company's network;</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="cv-section" style="margin-bottom: 20px;">
+                            <h2 class="section-title" style="font-size: 1.3rem; margin-bottom: 10px;">> Education</h2>
+
+                            <div class="cv-item" style="margin-bottom: 10px;">
+                                <div class="cv-item-header" style="margin-bottom: 5px;">
+                                    <span class="cv-item-title">PROGRAMMING AND COMPUTER SYSTEMS MANAGEMENT</span>
+                                    <span class="cv-item-date">[ 2018 - 2021 ]</span>
+                                </div>
+                                <div class="cv-item-subtitle" style="margin-bottom: 5px;">Escola Secundária de Estarreja
+                                </div>
+                                <ul class="cv-list">
+                                    <li>Installation, configuration, and administration of operating systems.</li>
+                                    <li>Networking fundamentals with hands-on simulation using Cisco Packet Tracer to
+                                        replicate real-world network environments.</li>
+                                    <li>Analysis and evaluation of information systems.</li>
+                                    <li>Design, development, and implementation of relational databases.</li>
+                                    <li>Creation of user accounts and management of permissions.</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="cv-section" style="margin-bottom: 10px;">
+                            <h2 class="section-title" style="font-size: 1.3rem; margin-bottom: 15px;">> Skills</h2>
+                            <div class="skills-grid">
+                                <div class="skill-tag">JavaScript</div>
+                                <div class="skill-tag">HTML5</div>
+                                <div class="skill-tag">CSS</div>
+                                <div class="skill-tag">Node.js</div>
+                                <div class="skill-tag">Python</div>
+                                <div class="skill-tag">Git</div>
+                                <div class="skill-tag">SQL</div>
+                                <div class="skill-tag">TailwindCSS</div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
